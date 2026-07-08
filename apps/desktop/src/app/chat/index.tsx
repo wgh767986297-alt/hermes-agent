@@ -428,7 +428,8 @@ export function ChatView({
         className
       )}
     >
-      <Backdrop />
+      {/* 苏小睿 - 已置顶功能已屏蔽 */}
+      {/* <Backdrop /> */}
       <ChatHeader
         activeSessionId={activeSessionId}
         isRoutedSessionView={isRoutedSessionView}

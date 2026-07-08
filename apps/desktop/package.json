@@ -1,9 +1,9 @@
 {
-  "name": "hermes",
-  "productName": "Hermes",
+  "name": "suxiaorui",
+  "productName": "苏小睿",
   "private": true,
   "version": "0.17.0",
-  "description": "Native desktop shell for Hermes Agent.",
+  "description": "苏小睿智能体桌面应用。",
   "author": "Nous Research",
   "type": "module",
   "main": "electron/main.cjs",
@@ -148,18 +148,18 @@
   },
   "build": {
     "electronVersion": "40.10.2",
-    "appId": "com.nousresearch.hermes",
-    "productName": "Hermes",
-    "executableName": "Hermes",
+    "appId": "com.nousresearch.suxiaorui",
+    "productName": "苏小睿",
+    "executableName": "苏小睿",
     "protocols": [
       {
-        "name": "Hermes Protocol",
+        "name": "苏小睿 Protocol",
         "schemes": [
           "hermes"
         ]
       }
     ],
-    "artifactName": "Hermes-${version}-${os}-${arch}.${ext}",
+    "artifactName": "苏小睿-${version}-${os}-${arch}.${ext}",
     "icon": "assets/icon",
     "directories": {
       "output": "release"
@@ -200,11 +200,11 @@
       "entitlements": "electron/entitlements.mac.plist",
       "entitlementsInherit": "electron/entitlements.mac.inherit.plist",
       "extendInfo": {
-        "CFBundleDisplayName": "Hermes",
-        "CFBundleExecutable": "Hermes",
-        "CFBundleName": "Hermes",
-        "NSAudioCaptureUsageDescription": "Hermes uses audio capture for voice conversations.",
-        "NSMicrophoneUsageDescription": "Hermes uses the microphone for voice input and voice conversations."
+        "CFBundleDisplayName": "苏小睿",
+        "CFBundleExecutable": "苏小睿",
+        "CFBundleName": "苏小睿",
+        "NSAudioCaptureUsageDescription": "苏小睿 uses audio capture for voice conversations.",
+        "NSMicrophoneUsageDescription": "苏小睿 uses the microphone for voice input and voice conversations."
       },
       "gatekeeperAssess": false,
       "hardenedRuntime": true,
@@ -214,7 +214,7 @@
       ]
     },
     "dmg": {
-      "title": "Install Hermes",
+      "title": "Install 苏小睿",
       "backgroundColor": "#f5f5f7",
       "iconSize": 96,
       "window": {
@@ -236,7 +236,7 @@
       ]
     },
     "win": {
-      "legalTrademarks": "Hermes",
+      "legalTrademarks": "苏小睿",
       "target": [
         "nsis",
         "msi"
@@ -246,7 +246,7 @@
     "linux": {
       "category": "Development",
       "maintainer": "Nous Research <support@nousresearch.com>",
-      "synopsis": "Native desktop shell for Hermes Agent.",
+      "synopsis": "Native desktop shell for 苏小睿 Agent.",
       "target": [
         "AppImage",
         "deb",
@@ -257,8 +257,8 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "perMachine": false,
-      "shortcutName": "Hermes",
-      "uninstallDisplayName": "Hermes",
+      "shortcutName": "苏小睿",
+      "uninstallDisplayName": "苏小睿",
       "warningsAsErrors": false
     }
   }

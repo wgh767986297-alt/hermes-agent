@@ -106,46 +106,27 @@ export function ComposerControls({
             <SteeringWheel className={iconSize.sm} />
           </Button>
         </Tip>
-      ) : (
-        <DictationButton disabled={disabled} onToggle={onDictate} state={state.voice} status={voiceStatus} />
-      )}
+      ) : null}
       <AutoSpeakButton active={autoSpeak} disabled={disabled} onToggle={onToggleAutoSpeak} />
-      {showVoicePrimary ? (
-        <Tip label={c.startVoice}>
-          <Button
-            aria-label={c.startVoice}
-            className={PRIMARY_ICON_BTN}
-            disabled={disabled}
-            onClick={() => {
-              triggerHaptic('open')
-              conversation.onStart()
-            }}
-            size="icon"
-            type="button"
-          >
-            <AudioLines className={iconSize.sm} />
-          </Button>
-        </Tip>
-      ) : (
-        <Tip label={busy ? (busyAction === 'queue' ? c.queueMessage : c.stop) : c.send}>
-          <Button
-            aria-label={busy ? (busyAction === 'queue' ? c.queueMessage : c.stop) : c.send}
-            className={PRIMARY_ICON_BTN}
-            disabled={disabled || !canSubmit}
-            type="submit"
-          >
-            {busy ? (
-              busyAction === 'queue' ? (
-                <Layers3 className={iconSize.sm} />
-              ) : (
-                <span className="block size-2.5 rounded-[0.1875rem] bg-current" />
-              )
+      {/* 苏小睿 - 语音听写和语音对话已屏蔽，仅保留发送/停止按钮 */}
+      <Tip label={busy ? (busyAction === 'queue' ? c.queueMessage : c.stop) : c.send}>
+        <Button
+          aria-label={busy ? (busyAction === 'queue' ? c.queueMessage : c.stop) : c.send}
+          className={PRIMARY_ICON_BTN}
+          disabled={disabled || !canSubmit}
+          type="submit"
+        >
+          {busy ? (
+            busyAction === 'queue' ? (
+              <Layers3 className={iconSize.sm} />
             ) : (
-              <Codicon name="arrow-up" size="0.875rem" />
-            )}
-          </Button>
-        </Tip>
-      )}
+              <span className="block size-2.5 rounded-[0.1875rem] bg-current" />
+            )
+          ) : (
+            <Codicon name="arrow-up" size="0.875rem" />
+          )}
+        </Button>
+      </Tip>
     </div>
   )
 }

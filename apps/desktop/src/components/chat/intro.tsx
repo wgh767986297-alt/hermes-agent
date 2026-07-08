@@ -22,24 +22,24 @@ const NEUTRAL_PERSONALITIES = new Set(['', 'default', 'none', 'neutral'])
 
 const FALLBACK_COPY: IntroCopy[] = [
   {
-    headline: 'What are we moving today?',
-    body: "Send a bug, branch, plan, or rough idea. I'll inspect the repo and turn it into the next concrete step."
+    headline: '今天要推进什么？',
+    body: "发个bug、分支、计划或大概想法给我，我会检查仓库并给出下一步具体行动。"
   },
   {
-    headline: "What's on your mind?",
-    body: "Bring the code, question, or stuck part. I'll read the room before making changes."
+    headline: '在想什么？',
+    body: "把代码、问题或卡住的地方发过来，我先了解情况再做改动。"
   },
   {
-    headline: 'What should Hermes look at?',
-    body: "Send the task, failing path, or half-formed plan. I'll help turn it into action."
+    headline: '需要看看什么？',
+    body: "把任务、出错的路径或者初步计划发过来，我来帮你推进。"
   },
   {
-    headline: 'Where should we start?',
-    body: "Bring the problem, goal, or file. I'll inspect first and keep the next step concrete."
+    headline: '从哪开始？',
+    body: "把问题、目标或文件发来，我先检查一下，确保每一步都扎实。"
   },
   {
-    headline: 'What needs attention?',
-    body: "Send the context you have. I'll help sort it into a plan or a fix."
+    headline: '有什么需要关注的？',
+    body: "把你手头的上下文发过来，我帮梳理成计划或修复方案。"
   }
 ]
 
@@ -144,7 +144,7 @@ function pickCopy(copies: IntroCopy[], seed = 0): IntroCopy {
   return copies[Math.abs(seed) % copies.length] || FALLBACK_COPY[0]
 }
 
-const WORDMARK = 'HERMES AGENT'
+const WORDMARK = '苏小睿'
 
 function resolveCopy(personality?: string, seed?: number): IntroCopy {
   const personalityKey = normalizeKey(personality)
@@ -168,13 +168,9 @@ export function Intro({ personality, seed }: IntroProps) {
       <div className="w-full min-w-0">
         <p
           aria-label={WORDMARK}
-          className="fit-text mx-auto mb-1 w-[calc(100%-1rem)] font-['Collapse'] font-bold uppercase leading-[0.9] tracking-[0.08em] text-midground mix-blend-plus-lighter dark:text-foreground/90"
-          style={{ '--fit-min': '2.75rem' } as CSSProperties}
+          className="mx-auto mb-1 w-[calc(100%-1rem)] text-4xl font-['Collapse'] font-bold leading-[0.9] tracking-[0.08em] text-midground mix-blend-plus-lighter dark:text-foreground/90"
         >
-          <span>
-            <span>{WORDMARK}</span>
-          </span>
-          <span aria-hidden="true">{WORDMARK}</span>
+          {WORDMARK}
         </p>
 
         <p className="m-0 text-center leading-normal tracking-tight">{copy.body}</p>

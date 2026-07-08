@@ -2,7 +2,7 @@ import { normalize } from '@/lib/text'
 
 import type { Locale } from './types'
 
-export const DEFAULT_LOCALE: Locale = 'en'
+export const DEFAULT_LOCALE: Locale = 'zh'
 
 export const LOCALE_OPTIONS = [
   {
@@ -71,12 +71,9 @@ export function isLocale(value: unknown): value is Locale {
   return typeof value === 'string' && LOCALE_OPTIONS.some(locale => locale.id === value)
 }
 
-export function normalizeLocale(value: unknown): Locale {
-  if (typeof value !== 'string') {
-    return DEFAULT_LOCALE
-  }
-
-  return LOCALE_ALIASES[normalize(value)] ?? DEFAULT_LOCALE
+export function normalizeLocale(_value: unknown): Locale {
+  // 苏小睿定制：强制使用简体中文
+  return 'zh'
 }
 
 export function isSupportedLocaleValue(value: unknown): boolean {

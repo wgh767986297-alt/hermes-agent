@@ -8,11 +8,11 @@ import { $gatewayState } from '@/store/session'
 // Static, always-legible prefix; only TAIL ever scrambles. Splitting them at
 // the render level means no timer logic (even a stale HMR one) can ever
 // scramble "CONN".
-const PREFIX = 'CONN'
-const TAIL = 'ECTING'
-// Even-weight mono ascii so cycling glyphs don't jump width (matches the
-// nousnet-web download-button decode effect).
-const SCRAMBLE_CHARS = '/\\|-_=+<>~:*'
+// 苏小睿 - 连接中文提示
+const PREFIX = '正在'
+const TAIL = '建立连接...'
+// Simple fade-in animation chars
+const SCRAMBLE_CHARS = '·'
 const TICK_MS = 45
 
 // Exit choreography (ms): text fades down + out, hold, then the overlay fades.
@@ -172,17 +172,12 @@ export function GatewayConnectingOverlay() {
       <style>{'@keyframes gco-cursor { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }'}</style>
       <span
         className={cn(
-          'inline-flex items-center pl-[0.4em] font-mono text-[0.64rem] font-semibold uppercase tracking-[0.4em] tabular-nums text-(--theme-primary) transition duration-300 ease-out',
+          'inline-flex items-center pl-[0.4em] text-[1.25rem] font-bold tracking-[0.1em] tabular-nums text-(--theme-primary) transition duration-300 ease-out',
           leaving ? 'translate-y-2 opacity-0 saturate-0' : 'translate-y-0 opacity-100 saturate-100'
         )}
       >
         {PREFIX}
         {tail}
-        <span
-          aria-hidden="true"
-          className="dither ml-0.5 inline-block size-2 shrink-0 -translate-y-px rounded-[1px]"
-          style={{ animation: 'gco-cursor 1s step-end infinite' }}
-        />
       </span>
     </div>
   )

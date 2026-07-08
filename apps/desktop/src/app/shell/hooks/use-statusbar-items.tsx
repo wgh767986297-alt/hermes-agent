@@ -320,6 +320,7 @@ export function useStatusbarItems({
           ),
         id: 'agents',
         label: copy.agents,
+        hidden: true,
         onSelect: openAgents,
         title: agentsOpen ? copy.closeAgents : copy.openAgents,
         variant: 'action'
@@ -328,6 +329,7 @@ export function useStatusbarItems({
         icon: <Clock className="size-3" />,
         id: 'cron',
         label: copy.cron,
+        hidden: true,
         title: copy.openCron,
         to: CRON_ROUTE,
         variant: 'action'

@@ -127,19 +127,7 @@ export function ComposerStatusStack({ queue, sessionId }: ComposerStatusStackPro
       key: group.type,
       node: (
         <StatusSection
-          accessory={
-            group.type === 'subagent' ? (
-              <Button
-                className="text-muted-foreground/75 hover:text-foreground/90"
-                onClick={openAgents}
-                size="micro"
-                type="button"
-                variant="text"
-              >
-                {t.statusStack.agents}
-              </Button>
-            ) : undefined
-          }
+          accessory={undefined}
           defaultCollapsed={group.type !== 'todo'}
           icon={<Codicon className="text-muted-foreground/70" name={GROUP_ICON[group.type]} size="0.8rem" />}
           label={groupLabel(group, t.statusStack)}
